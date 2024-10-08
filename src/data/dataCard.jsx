@@ -18,7 +18,9 @@ const dataCard = [
       service: "Web",
       detail: "Programació d'una web responsive, completa",
       price: 500,
-      checkbox: false
+      checkbox: false,
+      pagines: 1,
+      llenguatges: 1
     },
   ];
   
