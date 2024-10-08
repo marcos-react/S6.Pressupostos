@@ -33,11 +33,6 @@ function CheckboxCard() {
   };
 
   // Manage change in checkbox
-  // Example { id: 2, service: "Ads", ... , price: 400, checkbox:false}
-  // then if handleCheckboxChange(2) then change checkbox to true
-  // { id: 2, service: "Ads", ... , price: 400, checkbox:true}
-  // Otherwise leave it as checkbox false.
-
   const handleCheckboxChange = (id) => {
     const updatedServices = services.map((service) =>
       service.id === id ? { ...service, checkbox: !service.checkbox } : service
@@ -47,10 +42,6 @@ function CheckboxCard() {
   };
 
   // Manage change in input box pagines
-  //{ id: 3, service: "Web", ..., price: 560, checkbox: true, pagines: 1, llenguatges: 1 }
-  // then if handlePaginesChange(1,2) then change pagines for 2
-  //{ id: 3, service: "Web", ..., price: 590, checkbox: true, pagines: 2, llenguatges: 1 }
-
   const handlePaginesChange = (id, newPagines) => {
     const updatedServices = services.map((service) =>
       service.id === id ? { ...service, pagines: newPagines } : service
@@ -60,10 +51,6 @@ function CheckboxCard() {
   };
 
   // Manage change in input box llenguatges
-  //{ id: 3, service: "Web", ..., price: 560, checkbox: true, pagines: 1, llenguatges: 1 }
-  // then if handlePaginesChange(1,2) then change llenguatges for 2
-  //{ id: 3, service: "Web", ..., price: 590, checkbox: true, pagines: 1, llenguatges: 2 }
-
   const handleLlenguatgesChange = (id, newLlenguatges) => {
     const updatedServices = services.map((service) =>
       service.id === id ? { ...service, llenguatges: newLlenguatges } : service
@@ -89,21 +76,22 @@ function CheckboxCard() {
                 </div>
 
                 <div className="flex flex-col items-end">
-                  <label className="cursor-pointer  label flex items-center">
+                  <label className="cursor-pointer label flex items-center">
                     <input
                       type="checkbox"
                       className="checkbox checkbox-primary"
                       checked={item.checkbox}
                       onChange={() => handleCheckboxChange(item.id)}
                     />
-                    <span className="label-text ml-1 ">Afegir</span>
+                    <span className="label-text ml-1">Afegir</span>
                   </label>
-                  {/* SubcheckboxCard is when id.service is Web and the checkbox is true */}
+
+                  {/* Add SubcheckboxCard menu */}
                   <SubCheckboxCard
                     item={item}
                     handlePaginesChange={handlePaginesChange}
                     handleLlenguatgesChange={handleLlenguatgesChange}
-                  ></SubCheckboxCard>
+                  />
                 </div>
               </div>
             </div>
@@ -111,7 +99,6 @@ function CheckboxCard() {
         ))}
       </div>
       <TotalCard total={total}></TotalCard>
-      {/* Prop total in component. total is updated with setTotal, setTotal is modified in CalculateTotal function */}
     </>
   );
 }
