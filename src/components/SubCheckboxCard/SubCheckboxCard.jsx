@@ -32,7 +32,8 @@ export default function SubCheckboxCard({
             </div>
           </div>
 
-          <div className="flex flex-row items-center space-x-2 md:space-x-4">
+          {/* La tercera columna */}
+          <div className="flex flex-row items-center space-x-2 md:space-x-4 mt-4"> {/* Aquí añadí `mt-4` */}
             <label className="text-sm font-bold">Nombre de llenguatges</label>
             <div className="flex items-center space-x-2">
               <button
